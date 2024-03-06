@@ -41,7 +41,8 @@ mris_convert ${SUBJECTS_DIR}/surf/lh.pial ${SUBJECTS_DIR}/surf/lh.pial.asc
 mris_convert ${SUBJECTS_DIR}/surf/rh.pial ${SUBJECTS_DIR}/surf/rh.pial.asc
 
 python -m create_tvb_dataset ${SUBJECTS_DIR} \
-$data/VepFreeSurferColorLut.txt ${SUBJECTS_DIR}/dwi/lut.VEP.txt $VEP \
+$data/VepFreeSurferColorLut.txt \
+${SUBJECTS_DIR}/dwi/lut.VEP.txt $VEP \
 ${SUBJECTS_DIR}/dwi/triu_counts.VEP.txt ${SUBJECTS_DIR}/dwi/triu_lengths.VEP.txt \
 ${SUBJECTS_DIR}/tvb/connectivity.VEP.zip ${SUBJECTS_DIR}/tvb
 
