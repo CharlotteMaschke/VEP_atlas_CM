@@ -33,6 +33,18 @@ ${SUBJECTS_DIR}/${SUBJECT}/label/${hemi}.aparc.vep.annot
 The volumentric parcellation/segmentation can be found here :
 ${SUBJECTS_DIR}/${SUBJECT}/mri/aparc+aseg.vep.mgz
 
+## Additional function: 
+To create TVB compatible files for information such as structural connectivity, regional areas and volumes. 
+
+mkdir -p ${SUBJECTS_DIR}/tvb
+mris_convert ${SUBJECTS_DIR}/surf/lh.pial ${SUBJECTS_DIR}/surf/lh.pial.asc
+mris_convert ${SUBJECTS_DIR}/surf/rh.pial ${SUBJECTS_DIR}/surf/rh.pial.asc
+python -m create_tvb_dataset ${SUBJECTS_DIR} \
+$data/VepFreeSurferColorLut.txt ${SUBJECTS_DIR}/dwi/lut.VEP.txt $VEP \
+${SUBJECTS_DIR}/dwi/triu_counts.VEP.txt ${SUBJECTS_DIR}/dwi/triu_lengths.VEP.txt \
+${SUBJECTS_DIR}/tvb/connectivity.VEP.zip ${SUBJECTS_DIR}/tvb
+
+
 ## Citation
 Huifang E. Wang, Julia Scholly, Paul Triebkorn, Viktor Sip, Samuel MedinaVillalon, Marmaduke M. Woodman, Arnaud Le Troter, Maxime Guye, Fab-rice Bartolomei, and Viktor Jirsa.  VEP atlas:  An anatomic and functionalhuman brain atlas dedicated to epilepsy patients.Journal of NeuroscienceMethods, page 108983, oct 2020.
 https://doi.org/10.1016/j.jneumeth.2020.108983
