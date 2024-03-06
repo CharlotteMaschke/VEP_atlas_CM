@@ -36,8 +36,8 @@ ${SUBJECTS_DIR}/${SUBJECT}/mri/aparc+aseg.vep.mgz
 ## Additional function: 
 To create TVB compatible files for information such as structural connectivity, regional areas and volumes. 
 
-mkdir -p ${SUBJECTS_DIR}/tvb \\
-mris_convert ${SUBJECTS_DIR}/surf/lh.pial ${SUBJECTS_DIR}/surf/lh.pial.asc \\
+mkdir -p ${SUBJECTS_DIR}/tvb \
+mris_convert ${SUBJECTS_DIR}/surf/lh.pial ${SUBJECTS_DIR}/surf/lh.pial.asc \
 mris_convert ${SUBJECTS_DIR}/surf/rh.pial ${SUBJECTS_DIR}/surf/rh.pial.asc
 
 python -m create_tvb_dataset ${SUBJECTS_DIR} \
